@@ -1,20 +1,20 @@
 #include <iostream>
 using namespace std;
 
-//  배열 값을 변경하는 함수
-void changeArray(int arr[], int size) {
-    // 첫 번째 요소를 변경
-    arr[0] = 42;
+// 변수 값을 변경하는 함수 (참조 전달)
+void changeValueByReference(int& x) {
+    // x의 값을 변경 (원본 변수 변경됨)
+    x = 10;
 }
 
 int main() {
-    // 배열 예제
-    int arr[3] = { 1, 2, 3 };
-    cout << "Before changeArray: arr[0] = " << arr[0] << endl;
-    //0의 위치가 1이고, 바뀌지 않는다는 조건이 있으니 답은 1
-    changeArray(arr, 3); // 배열은 참조처럼 전달되므로 원본이 변경됨
-    cout << "After changeArray: arr[0] = " << arr[0] << endl;
-    //3의 위치가 3이지만, 바뀐다는 조건이 생겼으니 42로 출력한다
+
+    int num = 3;
+    cout << "Before changeValueByReference: num = " << num << endl;
+    changeValueByReference(num); // 참조 전달, num의 원본이 변경됨
+    //참조하기 전의 num을 의미하므로써, 3이 출력된다
+    cout << "After changeValueByReference: num = " << num << endl;
+    //참조후에 num을 의미하므로, x의 참조값인 10이 출력된다
 
     return 0;
 }

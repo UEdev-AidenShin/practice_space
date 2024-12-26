@@ -1,18 +1,20 @@
 #include <iostream>
 using namespace std;
 
-// 1. 변수 값을 변경하는 함수 (값 전달)
-void changeValue(int x) {
-    x = 10;
+//  배열 값을 변경하는 함수
+void changeArray(int arr[], int size) {
+    // 첫 번째 요소를 변경
+    arr[0] = 42;
 }
 
 int main() {
+    // 배열 예제
+    int arr[3] = { 1, 2, 3 };
+    cout << "Before changeArray: arr[0] = " << arr[0] << endl;
+    //0의 위치가 1이고, 바뀌지 않는다는 조건이 있으니 답은 1
+    changeArray(arr, 3); // 배열은 참조처럼 전달되므로 원본이 변경됨
+    cout << "After changeArray: arr[0] = " << arr[0] << endl;
+    //3의 위치가 3이지만, 바뀐다는 조건이 생겼으니 42로 출력한다
 
-    int num = 5;
-    cout << "Before changeValue: num = " << num << endl;
-    // 여기서 넘은 x가 아니라 넘(5)에서 복사된 값이므로 정답은 5다
-    changeValue(num);
-    cout << "After changeValue: num = " << num << endl;
-    // 여기서 넘은 x가 아니라 넘(5)에서 복사된 값이고, 값이 변화될 선언이 없기 때문에 똑같이 5다
     return 0;
 }
